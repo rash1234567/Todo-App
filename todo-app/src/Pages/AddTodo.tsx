@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { categoriesData } from '../Data/data';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 
 
 function AddTodo () {
+    const {id} = useParams();
     const [todo, setTodo] = useState('');
     const [date, setDate] = useState('');
 
-    const {id} = useParams()
-
-    const eachCategory = categoriesData.find(c => c.id === id)
+    const navigate = useNavigate(); 
 
     const addTodo = () => {
+        const eachCategory = categoriesData.find(c => c.id === id)
          let newTodo : {
             id:string,
-            task :string,
+            task:string,
             completed:boolean,
             date:string
          } = {
@@ -24,9 +24,11 @@ function AddTodo () {
             completed:false,
             date:date
          } 
-      eachCategory?.tasks.push(newTodo);
-      console.log(eachCategory)
-      window.location.replace('/category/:id')   
+         if(eachCategory) {
+         eachCategory.tasks.push(newTodo);
+         }
+         navigate(-1)
+ 
     }
     return(
         <div className='bg-slate-500 w-[90vw] md:w-[60vw] flex flex-col lg:w-[30vw] h-[90vh] mx-auto mt-[5vh]'>
@@ -55,7 +57,7 @@ function AddTodo () {
                     <h1 className='text-[20px] text-white'>Priority</h1>
                     <input type="text"  className='w-full h-[60%] p-2'/>
                 </div>
-                <button className='bg-black text-white p-2 w-[50%] rounded-2xl self-center' onClick={addTodo}>Add Todo</button>
+                <input type="button" value="Add todo" className='bg-black text-white p-2 w-[50%] rounded-2xl self-center' onClick={()=>addTodo()} />
            </form>
         </div>
     )

@@ -14,7 +14,7 @@ function App() {
        <Router>
            <Routes>
               <Route path='/' element={<Index/>} />
-              <Route path='/addtodo/:id' element={<AddTodo />} />
+              <Route path='/category/:id/addtodo' element={<AddTodo />} />
               <Route path='/addcategory' element={<AddCategory/>} />
               <Route path='/category/:id' element={<TodoList/>} />
            </Routes>

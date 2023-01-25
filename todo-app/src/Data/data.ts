@@ -2,10 +2,10 @@ export type categories = {
    id:string,
    name:string,
    tasks:{
-       id:string,
+      id:string,
        task:string,
        completed:boolean,
-       date:string
+       date:string 
    }[]
 }[]
 
