@@ -25,7 +25,7 @@ function TodoList () {
                         }
                     </div>
                     <div className='bg-[blue] w-[80px] h-[80px] rounded-full absolute bottom-[5%] right-[5%] text-[25px] text-white flex items-center justify-center' onClick={() => {
-                      window.location.replace('/addtodo')
+                      window.location.replace('/addtodo/' + id)
                     }}><i className="fa-solid fa-plus"></i></div>
             </div>
         </div>

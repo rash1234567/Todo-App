@@ -16,7 +16,7 @@ function AddCategory () {
                 id:string,
                 task:string,
                 completed:boolean,
-                date:Date
+                date:string
             }[]
          } = {
             id: categoryLength.toString(),

@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 function AddTodo () {
     const [todo, setTodo] = useState('');
-    const [date, setDate] = useState(new Date(0));
+    const [date, setDate] = useState('');
 
     const {id} = useParams()
 
@@ -17,14 +17,16 @@ function AddTodo () {
             id:string,
             task :string,
             completed:boolean,
-            date:Date
+            date:string
          } = {
             id:'a',
             task:todo,
             completed:false,
             date:date
          } 
-      eachCategory?.tasks.push(newTodo)   
+      eachCategory?.tasks.push(newTodo);
+      console.log(eachCategory)
+      window.location.replace('/category/:id')   
     }
     return(
         <div className='bg-slate-500 w-[90vw] md:w-[60vw] flex flex-col lg:w-[30vw] h-[90vh] mx-auto mt-[5vh]'>
@@ -42,8 +44,10 @@ function AddTodo () {
                 </div>
                 <div className='w-full h-[15%]  flex-col flex'>
                     <h1 className='text-[20px] text-white'>Date</h1> 
-                    <input type="date-time"  
+                    <input type="date"  
                         className='w-full h-[60%] p-2' 
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
                         
                 />
                 </div>
@@ -51,7 +55,7 @@ function AddTodo () {
                     <h1 className='text-[20px] text-white'>Priority</h1>
                     <input type="text"  className='w-full h-[60%] p-2'/>
                 </div>
-                <button className='bg-black text-white p-2 w-[50%] rounded-2xl self-center'>Add Todo</button>
+                <button className='bg-black text-white p-2 w-[50%] rounded-2xl self-center' onClick={addTodo}>Add Todo</button>
            </form>
         </div>
     )

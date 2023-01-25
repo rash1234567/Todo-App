@@ -5,7 +5,7 @@ export type categories = {
        id:string,
        task:string,
        completed:boolean,
-       date:Date
+       date:string
    }[]
 }[]
 
@@ -17,7 +17,7 @@ export const categoriesData:categories = [
             id:'1a',
             task:'learn typescript',
             completed: false,
-            date:new Date()
+            date:"27-04-2023"
         }]
     },
     {
@@ -27,7 +27,7 @@ export const categoriesData:categories = [
             id:'2a',
             task:'get to work by 8',
             completed:false,
-            date:new Date()
+            date:"27-04-2023"
         }]
 
     },
@@ -38,7 +38,7 @@ export const categoriesData:categories = [
            id:'3a',
            task:'hit the gym',
            completed:false,
-           date:new Date()
+           date:"27-04-2023"
         }] 
     },
 ]
